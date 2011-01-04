@@ -1,0 +1,77 @@
+Uniqueness of the peptides in the binary peptide library
+# When 
+# Cut site 	E
+# Labelled	K, R
+Number of peptides that occurrenced 1 : 26638
+Number of peptides that occurrenced 2 : 11904
+Number of peptides that occurrenced 3 : 4201
+Number of peptides that occurrenced 4 : 1590
+Number of peptides that occurrenced 5 : 850
+Number of peptides that occurrenced 6 : 510
+Number of peptides that occurrenced 7 : 391
+Number of peptides that occurrenced 8 : 326
+Number of peptides that occurrenced 9 : 240
+Number of peptides that occurrenced 10 : 177
+Number of peptides that occurrenced 11 : 146
+Number of peptides that occurrenced 12 : 116
+Number of peptides that occurrenced 13 : 115
+Number of peptides that occurrenced 14 : 79
+Number of peptides that occurrenced 15 : 67
+Number of peptides that occurrenced 16 : 67
+Number of peptides that occurrenced 17 : 56
+Number of peptides that occurrenced 18 : 49
+Number of peptides that occurrenced 19 : 24
+Number of peptides that occurrenced 20 : 37
+# Normalised list
+[54.901071723000825, 24.534212695795549, 8.6582852431986801, 3.2769991755976915, 1.7518549051937344, 1.0511129431162407, 0.80585325638911787, 0.67188788128606758, 0.49464138499587801, 0.36479802143446, 0.30090684253915911, 0.23907666941467437, 0.2370156636438582, 0.16281945589447649, 0.13808738664468259, 0.13808738664468259, 0.11541632316570487, 0.10098928276999175, 0.049464138499587799, 0.076257213520197861]
+
+# Cut site	E
+# Labelled	K, R, C
+Number of peptides that occurrenced 1 : 31768
+Number of peptides that occurrenced 2 : 13952
+Number of peptides that occurrenced 3 : 4851
+Number of peptides that occurrenced 4 : 1790
+Number of peptides that occurrenced 5 : 883
+Number of peptides that occurrenced 6 : 531
+Number of peptides that occurrenced 7 : 425
+Number of peptides that occurrenced 8 : 352
+Number of peptides that occurrenced 9 : 220
+Number of peptides that occurrenced 10 : 169
+Number of peptides that occurrenced 11 : 158
+Number of peptides that occurrenced 12 : 132
+Number of peptides that occurrenced 13 : 96
+Number of peptides that occurrenced 14 : 87
+Number of peptides that occurrenced 15 : 73
+Number of peptides that occurrenced 16 : 59
+Number of peptides that occurrenced 17 : 46
+Number of peptides that occurrenced 18 : 40
+Number of peptides that occurrenced 19 : 47
+Number of peptides that occurrenced 20 : 41
+# Normalised list
+[54.901071723000825, 24.534212695795549, 8.6582852431986801, 3.2769991755976915, 1.7518549051937344, 1.0511129431162407, 0.80585325638911787, 0.67188788128606758, 0.49464138499587801, 0.36479802143446, 0.30090684253915911, 0.23907666941467437, 0.2370156636438582, 0.16281945589447649, 0.13808738664468259, 0.13808738664468259, 0.11541632316570487, 0.10098928276999175, 0.049464138499587799, 0.076257213520197861]
+
+# Cut site	P
+# Labelled	K, R, C
+Number of peptides that occurrenced 1 : 32876
+Number of peptides that occurrenced 2 : 14171
+Number of peptides that occurrenced 3 : 4688
+Number of peptides that occurrenced 4 : 1581
+Number of peptides that occurrenced 5 : 735
+Number of peptides that occurrenced 6 : 437
+Number of peptides that occurrenced 7 : 354
+Number of peptides that occurrenced 8 : 272
+Number of peptides that occurrenced 9 : 167
+Number of peptides that occurrenced 10 : 136
+Number of peptides that occurrenced 11 : 112
+Number of peptides that occurrenced 12 : 106
+Number of peptides that occurrenced 13 : 63
+Number of peptides that occurrenced 14 : 59
+Number of peptides that occurrenced 15 : 43
+Number of peptides that occurrenced 16 : 51
+Number of peptides that occurrenced 17 : 46
+Number of peptides that occurrenced 18 : 41
+Number of peptides that occurrenced 19 : 26
+Number of peptides that occurrenced 20 : 34
+# Normalised list
+[67.757625721352014, 29.20651277823578, 9.6619950535861499, 3.2584501236603463, 1.5148392415498764, 0.9006595218466612, 0.72959604286891999, 0.56059356966199503, 0.34418796372629845, 0.28029678483099751, 0.23083264633140974, 0.21846661170651277, 0.12984336356141798, 0.12159934047815334, 0.088623248145094813, 0.10511129431162407, 0.094806265457543282, 0.084501236603462496, 0.053586150041220117, 0.070074196207749379]
+
