@@ -1,0 +1,7 @@
+
+1.	Yeast proteome 		downloaded from - ftp://genome-ftp.stanford.edu/yeast/data_download/sequence/genomic_sequence/orf_protein/
+				date of download 4th Jan 2011
+2.	pept_lib_yeast.py	Parses the dataset and generates peptides based on the cleavage. Converts the peptides into binary codes 1 - at every K, R position. Generates binary peptide : count (1,2..) as a txt file and pickle
+3.	graph_pept_lib_yeast.py Uses the file generated from pept_lib_yeast.py to obtain a histogram of the number of peptides with various counts
+4. 	len_distr.py		For peptides with count 1, i.e. unique peptides - generates a histogram of the length distribution
+5. 	

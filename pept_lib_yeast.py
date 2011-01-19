@@ -40,9 +40,10 @@ def get_gi_seq_dict(lines):
 	    # (2) Replace the sequence \n with nothing
 	    sequence = sequence.replace('\n','')
 	    # (3) Obtain gi
-	    gi = line.split('|')[1]
+	    gi = line.split(' ')[1]
 	    # (4) Making the key:value dictionary
 	    sequence = sequence.upper()		#Ensuring the sequence is in uppercase
+	    sequence = sequence[:-1]		# The end has a trailing *
 	    gi_seq_dictionary[gi] = sequence
 	    sequence = ''
 	if not line.startswith('>'):	# This is to add all lines following the first line of the fasta file delimiter '>'
@@ -74,6 +75,7 @@ def convert_gi_seq_dict_to_peptides(gi_seq_dict,cut_site):
 	    peptide = re.sub('[K,R]','1',peptide)
 	    peptide = re.sub('C','2',peptide)
 	    peptide = re.sub('[^1,^2]','0',peptide)
+	    #peptide = re.sub('[^1]','0',peptide)
 	    # (5) Adding to the peptide library
 	    bin_peptide_lib.append(peptide)
 	    # (6) Adding to gi_pept string
@@ -90,26 +92,26 @@ def main(argument):
     peptide_count_dictionary = {}
     
     # (1) Open and read lines of fasta file containing the translated sequence
-    file_name = 'yeast_nrpep.fasta'
+    file_name = 'orf_trans.fasta'
     ifile = open_file(file_name)
     lines = ifile.readlines()
     ifile.close()
     
     # (2) Parse the file to retrieve the gi:sequence key-value pair
     gi_sequence_dictionary = get_gi_seq_dict(lines)
+    print len(gi_sequence_dictionary)
     
     # (3) Convert the sequence of each protein gi into shorter peptides and translate to 1s and 0s
     cut_site = 'P'	# Can cut at the site as needed
     converted_gi_peptide_dictionary, bin_peptide_lib = convert_gi_seq_dict_to_peptides(gi_sequence_dictionary,cut_site)
-    
+
     # (4) Make a non redundant set of all the entries in the binary peptide library
     nr_set_bin_pept_lib = set(bin_peptide_lib)
     print len(nr_set_bin_pept_lib)
     print len(bin_peptide_lib)
-    print bin_peptide_lib[1]
     
     # (5) Writing output of peptide - count; Checking if it exists.
-    out_file = 'bin_pept_lib_yeast_split_cys_lab.pro'
+    out_file = 'bin_pept_lib_yeast_split_procut_labcys.ver2.txt'
     if os.path.exists(out_file):
 	os.remove(out_file)
     
@@ -125,7 +127,7 @@ def main(argument):
     ofile.close()
     
     # (8) Pickling the dictionary
-    out_pkl_file = open('pept_lib_yeast_dict_counts_cyslab_pro.pkl','wb')
+    out_pkl_file = open('pept_lib_yeast_dict_counts_procut_labcys.ver2.pkl','wb')
     pickle.dump(peptide_count_dictionary,out_pkl_file)
     out_pkl_file.close()
 	
@@ -138,7 +140,7 @@ def main(argument):
     p.ylabel('# Peptides')
     p.title('Frequency histogram of number of counts of each peptide in the converted peptide library ')
     fig_dir = os.getcwd() + '/figures/'
-    fig_name = fig_dir + 'yeast_converted_peptide_freq.png'
+    fig_name = fig_dir + 'yeast_converted_peptide_freq_procut_labcys.png'
     p.show()
     p.savefig(fig_name,format = "png", orientation='landscape')
 
@@ -146,9 +148,9 @@ if __name__ == '__main__':
     
     argument = sys.argv[1:]
     
-    print "Processing %s ..."%(argument)
+    print "Processing pro-cut lab-cys %s ..."%(argument)
     main(argument)
     
     import time
-    print "Script - pept_lib_yeast.py %s \t Completed \t %s"%(argument, time.strftime("%d %b %Y %H:%M:%S",time.localtime()))
+    print "Script - pept_lib_yeast.py pro_cut lab_Cys \t Completed \t %s"%(time.strftime("%d %b %Y %H:%M:%S",time.localtime()))
     
