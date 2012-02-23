@@ -252,9 +252,9 @@ def get_all_gi_list(uniq_cut_peptides, trunc_pept_gilist_dict):
 def main(argument):
     
     [argv] = argument
-    org = 'yeast'
-    mod = '_K_cutE_fluor_100'
-    ver = '5'
+    org = 'human'
+    mod = '_K_cutE'
+    ver = '6'
     cut_site = 'E'
     fluor_limit = 100
     req_hist = True
@@ -395,15 +395,16 @@ def main(argument):
 	# When constraining the number of K's that can be observed. i.e if #Ks > 10 it is hard to distinguish. But if #Ks <5 (limit) it is easier to detect
 	# No Limit 
 	# If we labeled only K ; cut E
-	cov1 = [0.0, 0.05097706032285472, 2.7017841971113001, 11.079014443500425, 22.310960067969411, 31.299915038232797, 37.841971112999154, 41.835174171622768, 44.044180118946471, 45.11469838572642, 45.913338997451149]
+	cov1 = [0.0, 0.0049377839225755484, 1.0517479755085917, 5.3130555006912896, 12.137072881690697, 18.427809599051944, 23.256962275330832, 26.817104483507805, 29.281058660873001, 31.053723089077621, 32.115346632431361]
+	
 	# Limit = 2
-	cov2 = [0.0, 0.0, 0.0, 0.0, 0.05097706032285472, 0.57774001699235344, 1.3254035683942227, 2.0900594732370434, 2.990654205607477, 3.2795242141036534, 3.5004248088360237]
+	cov2 = [0.0, 0.0, 1.1011258147343472, 5.8364605964842973, 13.070314043057477, 21.346039897294094, 27.666403318190795, 31.80920402923168, 34.712620975706102, 36.79636579103299, 38.208571992889588]
 	# Limit = 4
-	cov3 = [0.0, 0.067969413763806288, 1.7502124044180118, 6.1002548853016139, 11.707731520815633, 17.40016992353441, 21.614273576890401, 23.772302463891247, 25.28462192013594, 26.185216652506369, 26.677994902293968]
+	cov3 =[0.0, 0.22220027651589969, 8.4979261307525178, 27.335571795378232, 43.279676081374681, 51.945486865494757, 56.809204029231687, 59.139838040687344, 60.305155046415173, 60.724866679834086, 60.976693659885441]
 	# Limit = 6
-	cov4 = [0.0, 0.05097706032285472, 2.1410365335598982, 9.107901444350043, 17.824978759558199, 25.777400169923538, 31.673746813933729, 35.344095157179268, 37.383177570093459, 38.26677994902294, 38.963466440101953]
+	cov4 = [0.0, 0.20244914082559748, 8.5917440252814536, 28.979853841595894, 46.336164329448941, 55.421686746987952, 60.532293106853643, 62.917242741457635, 63.840608334979265, 64.299822239778791, 64.507209164526955]
 	# Limit = 8
-	cov5 = [0.0, 0.05097706032285472, 2.3449447748513168, 10.229396771452846, 20.713678844519968, 29.226847918436704, 35.581988105352593, 39.439252336448597, 41.614273576890398, 42.565845369583691, 43.313508920985555]
+	cov5 = [0.0, 0.05925340707090658, 16.146553426822042, 45.546118901836856, 60.581670946079399, 66.067548884060841, 68.299427217064974, 69.326486272960693, 69.825202449140818, 70.106656132727636, 70.294291921785501]
 	# Limit = 10
 	cov6 = [0.0, 0.05097706032285472, 2.4978759558198811, 10.620220900594731, 21.546304163126592, 30.416312659303312, 36.805437553101108, 40.832625318606624, 42.990654205607477, 43.959218351741718, 44.706881903143589]
 	# Limit = 12
@@ -415,19 +416,19 @@ def main(argument):
 	ax1 = fig.add_subplot(1,1,1)
 	p.xlabel('# Number of Edman Cycles ')
 	p.ylabel('# Percentage of proteome covered')
-	p.title('Yeast proteome coverage as a function of sequenced length : K Label; Cut - E')
+	p.title('Human proteome coverage as a function of sequenced length : Different Labels; Cut - E or R')
 	line1 = p.plot(xlist, cov1, 'b-s',linewidth=2.0)
 	line2 = p.plot(xlist, cov2, 'g-o',linewidth=2.0)
 	line3 = p.plot(xlist, cov3, 'r-^',linewidth=2.0)
 	line4 = p.plot(xlist, cov4, 'c-*',linewidth=2.0)
 	line5 = p.plot(xlist, cov5, 'k-+',linewidth=2.0)
-	line6 = p.plot(xlist, cov6, 'm-D',linewidth=2.0)
-	line7 = p.plot(xlist, cov7, 'y-H',linewidth=2.0)
+	#line6 = p.plot(xlist, cov6, 'm-D',linewidth=2.0)
+	#line7 = p.plot(xlist, cov7, 'y-H',linewidth=2.0)
 	#line5 = p.plot(xlist, cov5, 'm-p',linewidth=2.0)
-	p.legend((line1,line2,line3, line4, line5, line6, line7),('No Limit','limit = 2Ks','limit = 4Ks', 'limit = 6Ks', 'limit = 8Ks', 'limit = 10Ks','limit = 12Ks'), loc=4)
+	p.legend((line1,line2,line3, line4, line5),('Label-K;Cut-E','Label-K;Cut-R','Label-K,T;Cut-E','Label-K,T;Cut-R','Label-K,[E,D];Cut-R'), loc=4)
 	fig_dir = os.getcwd() + '/figures/'
-	fig_name = fig_dir + org + 'proteome_fn_nbr_labeled_K_in_peptide.png'
-	#p.savefig(fig_name,format = "png", orientation='landscape')
+	fig_name = fig_dir + org + 'proteome_coverage_diffLabels.eps'
+	p.savefig(fig_name,format = "eps", orientation='landscape')
 	p.show()
     
     if argv == '4':
